@@ -1,0 +1,16 @@
+{
+  "expo": {
+    "name": "kot_mo_kas",
+    "slug": "kot_mo_kas",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "splash": {
+      "image": "./assets/logo.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    }
+  },
+  "name": "kot_mo_kas"
+}
