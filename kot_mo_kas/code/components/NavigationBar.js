@@ -7,6 +7,7 @@ import Analytics from '../screens/Analytics';
 import Add from '../screens/Add';
 import Settings from '../screens/Settings';
 import Transactions from '../screens/Transactions';
+// Styles
 import styles from '../styles/Styles';
 
 const Tab = createBottomTabNavigator();

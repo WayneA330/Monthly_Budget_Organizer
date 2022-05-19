@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#fff',
+        backgroundColor: '#ffffff',
         padding: 23
     },
     // Navigation Bar Shadow
@@ -58,7 +58,46 @@ const styles = StyleSheet.create({
         marginLeft: 'auto',
         marginRight: 'auto',
         borderRadius: 10
-    }  
+    },
+    // Settings
+    settings_container: {
+
+    },
+    setting_category_btn: {
+        borderColor: '#00ce00',
+        borderWidth: 1,
+        padding: 15,
+        borderRadius: 15
+    },
+    setting_about_btn: {
+        borderColor: '#00ce00',
+        borderWidth: 1,
+        padding: 15,
+        borderRadius: 15,
+        marginTop: 25
+    },
+    setting_centeredView: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        marginTop: 22
+    },
+    setting_modalView: {
+        display: 'flex',
+        justifyContent: "space-around",
+        // borderWidth:1,
+        backgroundColor: "white",
+        alignItems: "center",
+        height: 160
+    },
+    setting_buttonClose: {
+        marginTop: 25,
+        backgroundColor: "#ffffff",
+        borderRadius: 5,
+        borderWidth: 1,
+        padding: 15,
+        elevation: 2
+      },
 });
 
 export default styles;
