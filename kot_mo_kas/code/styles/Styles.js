@@ -116,9 +116,6 @@ const styles = StyleSheet.create({
         borderRadius: 10
     },
     // Settings
-    settings_container: {
-
-    },
     setting_category_btn: {
         borderColor: '#00ce00',
         borderWidth: 1,
@@ -141,10 +138,9 @@ const styles = StyleSheet.create({
     setting_modalView: {
         display: 'flex',
         justifyContent: "space-around",
-        // borderWidth:1,
         backgroundColor: "white",
         alignItems: "center",
-        height: 160
+        height: 190
     },
     setting_buttonClose: {
         marginTop: 25,

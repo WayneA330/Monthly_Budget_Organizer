@@ -33,7 +33,7 @@ export default function Settings({navigation}) {
                                 waynecelestin.a3@gmail.com
                             </Text>
                             <Text style={{fontSize: 16, marginTop: 10}}>Developed By: Wayne Célestin</Text>
-                            
+                            <Text style={{fontSize: 16, marginTop: 10}}>Published: 26/05/2022</Text>
                         </View>
                         <Pressable
                             style={styles.setting_buttonClose}
