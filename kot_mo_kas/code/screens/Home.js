@@ -3,15 +3,17 @@ import { View, Text, Image, TouchableOpacity, SafeAreaView, ScrollView } from 'r
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import styles from '../styles/Styles';
-// import budget from '../../assets/budget_pic.jpeg';
 
 export default function HomeScreen({navigation}) {
 
-    const onPress = () => navigation.navigate('Add');
+    const go_transactions = () => navigation.navigate('Transactions');
+    const go_add = () => navigation.navigate('Add');
+    const go_analytics = () => navigation.navigate('Analytics');
+    const go_settings = () => navigation.navigate('Settings');
 
     return(
         <View style={styles.container}>
-            <ScrollView>
+
                 {/* Top */}
                 <View style={styles.top_home}>
                     <Text style={styles.home_title}>
@@ -19,24 +21,74 @@ export default function HomeScreen({navigation}) {
                         Kot mo kas
                     </Text>
                     <View style={styles.hr_home}></View>
-                    <Text style={styles.home_intro}>
-                        Are you having trouble to keep track of your monthly spending? Are you searching for a centralized place to keep track of your expenses? Well, you are at the right place!
-                    </Text>
                 </View>
-                {/* Middle */}
-                <View style={styles.home_pic_container}>
+
+                <View style={[styles.home_display_sections] }>
+                    {/* Button for Transactions */}
                     <TouchableOpacity
-                        style={styles.home_btn}
-                        onPress={onPress}>
-                            <Text style={{color: '#ffffff'}}>Get Started</Text>
+                        style={[styles.home_transactions, styles.shadow]}
+                        onPress={go_transactions}
+                    >
+                        <Image 
+                        source={require('../../assets/transaction.png')}
+                        resizeMode='contain'
+                        style={{
+                            width: 70,
+                            height: 70
+                        }}
+                        />
+                        <Text style={{textAlign: 'center', fontSize: 19, marginTop: 8, color: 'black'}}>Transactions</Text>
                     </TouchableOpacity>
-                    <Image source={require('../../assets/budget_pic.jpeg')} style={{width: 170, height: 170}}/>
+                    {/* Button for Add */}
+                    <TouchableOpacity
+                        style={[styles.home_add, styles.shadow]}
+                        onPress={go_add}
+                    >
+                        <Image 
+                        source={require('../../assets/plus.png')}
+                        resizeMode='contain'
+                        style={{
+                            width: 50,
+                            height: 50,
+                        }}
+                        />
+                        <Text style={{textAlign: 'center', fontSize: 19, marginTop: 8, color: 'black'}}>Add</Text>
+                    </TouchableOpacity>
+                    {/* Button for Analytics */}
+                    <TouchableOpacity
+                        style={[styles.home_analytics, styles.shadow]}
+                        onPress={go_analytics}
+                    >
+                        <Image 
+                        source={require('../../assets/analytics.png')}
+                        resizeMode='contain'
+                        style={{
+                            width: 50,
+                            height: 50
+                        }}
+                        />
+                        <Text style={{textAlign: 'center', fontSize: 19, marginTop: 8, color: 'black'}}>Analytics</Text>
+                    </TouchableOpacity>
+                    {/* Button for Settings */}
+                    <TouchableOpacity
+                        style={[styles.home_settings, styles.shadow]}
+                        onPress={go_settings}
+                    >
+                        <Image 
+                        source={require('../../assets/gear.png')}
+                        resizeMode='contain'
+                        style={{
+                            width: 50,
+                            height: 50
+                        }}
+                        />
+                        <Text style={{textAlign: 'center', fontSize: 19, marginTop: 8, color: 'black'}}>Settings</Text>
+                    </TouchableOpacity>
                 </View>
-                {/* Bottom */}
                 <View style={styles.home_bottom}>
-                    <Text style={{fontSize: 16, textAlign: 'center', paddingBottom: 10, fontStyle: 'italic'}}>"A budget is telling your money where to go instead of wondering where it went."{"\n"} - Dave Ramsey</Text>
+                    <Text style={{fontSize: 19, textAlign: 'center', fontStyle: 'italic'}}>"A budget is telling your money where to go instead of wondering where it went."{"\n"} - Dave Ramsey</Text>
                 </View>
-            </ScrollView>
+
         </View>
     );
 }

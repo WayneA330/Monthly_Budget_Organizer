@@ -47,9 +47,65 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-between',
     },
+    home_display_sections: {
+        height: 284,
+        display: "flex",
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        flexWrap: 'wrap'
+        // alignItems: "center"
+    },
+    home_transactions: {
+        borderWidth: 1,
+        height: 130,
+        width: 130,
+        borderRadius: 10,
+        backgroundColor: '#ffa232',
+        display: 'flex',
+        justifyContent:'center',
+        alignItems: 'center',
+        margin: 10,
+        padding: 4
+    },
+    home_add: {
+        borderWidth: 1,
+        height: 130,
+        width: 130,
+        borderRadius: 10,
+        backgroundColor: '#85bf4b',
+        display: 'flex',
+        justifyContent:'center',
+        alignItems: 'center',
+        margin: 10,
+        padding: 4
+    },
+    home_analytics: {
+        borderWidth: 1,
+        height: 130,
+        width: 130,
+        borderRadius: 10,
+        backgroundColor: '#50bfbf',
+        display: 'flex',
+        justifyContent:'center',
+        alignItems: 'center',
+        margin: 10,
+        padding: 4
+    },
+    home_settings: {
+        borderWidth: 1,
+        height: 130,
+        width: 130,
+        borderRadius: 10,
+        backgroundColor: '#ff4a5a',
+        display: 'flex',
+        justifyContent:'center',
+        alignItems: 'center',
+        margin: 10,
+        padding: 4
+    },
     home_bottom: {
-        fontSize: 15,
-        marginTop: 15
+        marginTop: 60,
+        marginBottom: 30
     },
     home_btn: {
         alignItems: 'center',

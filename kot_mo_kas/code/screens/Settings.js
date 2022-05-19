@@ -44,7 +44,7 @@ export default function Settings({navigation}) {
                     </View>
                 </Modal>
 
-                <Text style={{fontWeight: 'bold', fontSize: 16, marginBottom: 25, marginTop: 20}}>General</Text>
+                <Text style={{fontWeight: 'bold', fontSize: 16, marginBottom: 25, marginTop: 10}}>General</Text>
                 <TouchableOpacity
                         style={styles.setting_category_btn}
                         onPress={onPress}>

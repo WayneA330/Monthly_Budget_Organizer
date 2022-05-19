@@ -68,7 +68,8 @@ const Tabs = () => {
                         />
                         <Text style={{color: focused ? '#009bff' : '#5a5e5c', fontSize: 12}}>Home</Text>
                     </View>
-                )
+                ),
+                tabBarStyle: {display: 'none'}
             }}/>
             <Tab.Screen name='Transactions' component={Transactions} options={{
                 tabBarIcon: ({focused}) => (
