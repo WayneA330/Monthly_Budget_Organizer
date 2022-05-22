@@ -11,7 +11,7 @@ export default function Settings({navigation}) {
     const onPress = () => navigation.navigate('');
 
     return(
-        <View style={styles.container}>
+        <View>
             <View style={styles.settings_container}>
                 {/* Modal for About */}
                 <Modal
@@ -44,7 +44,7 @@ export default function Settings({navigation}) {
                     </View>
                 </Modal>
 
-                <Text style={{fontWeight: 'bold', fontSize: 16, marginBottom: 25, marginTop: 10}}>General</Text>
+                <Text style={{fontWeight: 'bold', fontSize: 19, marginBottom: 25, marginTop: 40, textAlign: 'center'}}>General</Text>
                 <TouchableOpacity
                         style={styles.setting_category_btn}
                         onPress={onPress}>

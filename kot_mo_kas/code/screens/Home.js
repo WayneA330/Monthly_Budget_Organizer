@@ -84,7 +84,7 @@ export default function HomeScreen({navigation}) {
                     </TouchableOpacity>
                 </View>
                 <View style={styles.home_bottom}>
-                    <Text style={{fontSize: 19, textAlign: 'center', fontStyle: 'italic'}}>"A budget is telling your money where to go instead of wondering where it went."{"\n"} - Dave Ramsey</Text>
+                    <Text style={{fontSize: 19, textAlign: 'center', fontStyle: 'italic', marginBottom: '100%'}}>"A budget is telling your money where to go instead of wondering where it went."{"\n"} - Dave Ramsey</Text>
                 </View>
 
         </View>

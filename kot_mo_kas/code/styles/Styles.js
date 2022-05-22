@@ -53,7 +53,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-around',
         flexWrap: 'wrap'
-        // alignItems: "center"
     },
     home_transactions: {
         borderWidth: 1,
@@ -115,19 +114,87 @@ const styles = StyleSheet.create({
         marginRight: 'auto',
         borderRadius: 10
     },
+    // Transactions
+    // Add
+    income_container: {
+        display: 'flex',
+        flexDirection: 'column',
+        marginBottom: '100%',
+        marginTop: '10%'
+    },
+    income_input: {
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginBottom: 20
+    },
+    dropdown1BtnStyle: {
+        width: 250,
+        height: 45,
+        backgroundColor: '#ffffff',
+        borderRadius: 8,
+        borderWidth: 1,
+        borderColor: '#000000',
+    },
+    dropdown1DropdownStyle: {
+        backgroundColor: '#ffffff',
+        borderRadius: 10,
+    },
+    dropdown1RowStyle: {
+        backgroundColor: '#EFEFEF',
+        borderBottomColor: '#C5C5C5',
+        height: 45
+    },
+    dropdown1BtnTxtStyle: {
+        color: '#444',
+        textAlign: 'center'
+    },
+    expense_container: {
+        display: 'flex',
+        flexDirection: 'column',
+        marginBottom: '100%',
+        marginTop: '10%'
+    },
+    expense_input: {
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginBottom: 20
+    },
+    add_btn_add: {
+        borderWidth: 1,
+        width: 100,
+        height: 50,
+        borderRadius: 10,
+        backgroundColor: '#0055ff',
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    add_btn_container: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        marginTop: 20
+    },
+    // Analytics
     // Settings
+    settings_container: {
+        backgroundColor: 'white'
+    },
     setting_category_btn: {
         borderColor: '#00ce00',
         borderWidth: 1,
         padding: 15,
-        borderRadius: 15
+        width: '100%'
     },
     setting_about_btn: {
         borderColor: '#00ce00',
         borderWidth: 1,
         padding: 15,
-        borderRadius: 15,
-        marginTop: 25
+        marginTop: 25,
+        marginBottom: '100%'
     },
     setting_centeredView: {
         flex: 1,
@@ -149,7 +216,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         padding: 15,
         elevation: 2
-      },
+    },
 });
 
 export default styles;
