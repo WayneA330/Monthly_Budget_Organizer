@@ -1,9 +1,26 @@
 import React, { useState } from "react";
-import { View, Text, useWindowDimensions, TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, useWindowDimensions, TextInput, TouchableOpacity, DevSettings } from 'react-native';
 import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
 import SelectDropdown from 'react-native-select-dropdown';
-import DatePicker from 'react-native-datepicker';
+// import DatePicker from 'react-native-datepicker';
+import * as SecureStore from 'expo-secure-store';
 import styles from '../styles/Styles';
+
+// Get current month and year
+let dateObj = new Date();
+let trans_year_month = `trans_${dateObj.getUTCFullYear()}_${dateObj.getMonth() + 1}`;
+// Generate transaction_key: trans_year_month (e.g trans_2022_05)
+
+// Check current status of trans_year_month, if not null, append to transactions_array
+let transactions_array = [];
+
+const checkData = async () => {
+    let result = await SecureStore.getItemAsync(trans_year_month);
+    if (result !== undefined && result !== null) {
+        transactions_array = JSON.parse(result);
+        console.log(transactions_array);
+    }
+}
 
 // Income Section
 const INCOME_DATA = [
@@ -11,13 +28,29 @@ const INCOME_DATA = [
     'Gift'
 ]
 
+const getDataIncome = async () => {
+    result = await SecureStore.getItemAsync(trans_year_month);
+    // console.log(JSON.parse(result));
+}
+
 const income = () => {
     const [category_income, newCategoryIncome] = useState('')
     const [amount_income, setAmountIncome] = useState('');
-    const [date, setDate] = useState(new Date());
+    // const [date, setDate] = useState(new Date());
     // console.log(date);
-    console.log(category_income);
-    console.log(amount_income);
+    
+    const addData = async () => {
+        const transactions_income = new Object();
+        transactions_income.category = category_income;
+        transactions_income.amount = amount_income;
+        transactions_array.push(transactions_income);
+        
+        // console.log(transactions_array);
+        await SecureStore.setItemAsync(trans_year_month, JSON.stringify(transactions_array));
+        // getDataIncome();
+        checkData();
+    }
+
     
     return (
         <View style={styles.container}>
@@ -28,7 +61,6 @@ const income = () => {
                         <SelectDropdown
                             data={INCOME_DATA}
                             onSelect={(selectedItem, index) => {
-                                console.log(selectedItem);
                                 newCategoryIncome(selectedItem);
                             }}
                             defaultButtonText={'Select the category'}
@@ -45,6 +77,7 @@ const income = () => {
                         style={{height: 45, borderWidth: 1, borderRadius: 10, width: 250, marginLeft: 10, textAlign: 'center'}}
                         onChangeText={newAmount => setAmountIncome(newAmount.replace(/[^0-9]/g, ''))}
                         defaultValue={amount_income}
+                        keyboardType='numeric'
                     />
                 </View>
                 {/* Date */}
@@ -90,12 +123,11 @@ const income = () => {
                 <View style={styles.add_btn_container}>
                     <TouchableOpacity
                         style={styles.add_btn_add}
-                        // onPress={}
+                        onPress={addData}
                     >
                         <Text style={{color: 'white', fontSize: 16}}>Add</Text>
                     </TouchableOpacity>
                 </View>
-                
             </View>
         </View>
     )
@@ -116,15 +148,30 @@ const EXPENSE_DATA = [
     'Sports'
 ]
 
+const getDataExpense = async () => {
+    let result = await SecureStore.getItemAsync(trans_year_month);
+    console.log(JSON.parse(result));
+}
+
 const expense = () => {
     const [category_expense, newCategoryExpense] = useState('')
     const [amount_expense, setAmountExpense] = useState('');
-    console.log(category_expense);
-    console.log(amount_expense);
+
+    const addData = async () => {
+        const transactions_expense = new Object();
+        transactions_expense.category = category_expense;
+        transactions_expense.amount = amount_expense;
+        transactions_array.push(transactions_expense);
+        
+        await SecureStore.setItemAsync(trans_year_month, JSON.stringify(transactions_array));
+        // getDataExpense();
+        checkData();
+    }
 
     return (
         <View style={styles.container}>
             <View style={styles.expense_container}>
+                {/* Category */}
                 <View style={styles.expense_input}>
                         <Text style={{marginRight: 15, fontSize: 16}}>Category</Text>
                         <SelectDropdown
@@ -139,22 +186,25 @@ const expense = () => {
                             rowStyle={styles.dropdown1RowStyle}
                         />
                 </View>
+                {/* Amount */}
                 <View style={styles.expense_input}>
                     <Text style={{marginRight: 15, fontSize: 16}}>Amount</Text>
                     <TextInput
                         style={{height: 45, borderWidth: 1, borderRadius: 10, width: 250, marginLeft: 10, textAlign: 'center'}}
-                        placeholder="Type here to translate!"
                         onChangeText={newAmount => setAmountExpense(newAmount.replace(/[^0-9]/g, ''))}
                         defaultValue={amount_expense}
+                        keyboardType='numeric'
                     />
                 </View>
+                {/* Date */}
                 <View style={styles.expense_input}>
                     <Text style={{marginRight: 15, fontSize: 16}}>Date</Text>
                 </View>
+                {/* Add Button */}
                 <View style={styles.add_btn_container}>
                     <TouchableOpacity
                         style={styles.add_btn_add}
-                        // onPress={}
+                        onPress={addData}
                     >
                         <Text style={{color: 'white', fontSize: 16}}>Add</Text>
                     </TouchableOpacity>

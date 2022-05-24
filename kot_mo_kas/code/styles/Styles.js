@@ -162,7 +162,6 @@ const styles = StyleSheet.create({
         marginBottom: 20
     },
     add_btn_add: {
-        borderWidth: 1,
         width: 100,
         height: 50,
         borderRadius: 10,
