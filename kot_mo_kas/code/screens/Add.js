@@ -21,17 +21,13 @@ const checkData = async () => {
         console.log(transactions_array);
     }
 }
+checkData();
 
 // Income Section
 const INCOME_DATA = [
     'Salary',
     'Gift'
 ]
-
-const getDataIncome = async () => {
-    result = await SecureStore.getItemAsync(trans_year_month);
-    // console.log(JSON.parse(result));
-}
 
 const income = () => {
     const [category_income, newCategoryIncome] = useState('')
@@ -45,10 +41,7 @@ const income = () => {
         transactions_income.amount = amount_income;
         transactions_array.push(transactions_income);
         
-        // console.log(transactions_array);
         await SecureStore.setItemAsync(trans_year_month, JSON.stringify(transactions_array));
-        // getDataIncome();
-        checkData();
     }
 
     
@@ -148,11 +141,6 @@ const EXPENSE_DATA = [
     'Sports'
 ]
 
-const getDataExpense = async () => {
-    let result = await SecureStore.getItemAsync(trans_year_month);
-    console.log(JSON.parse(result));
-}
-
 const expense = () => {
     const [category_expense, newCategoryExpense] = useState('')
     const [amount_expense, setAmountExpense] = useState('');
@@ -162,10 +150,8 @@ const expense = () => {
         transactions_expense.category = category_expense;
         transactions_expense.amount = amount_expense;
         transactions_array.push(transactions_expense);
-        
+
         await SecureStore.setItemAsync(trans_year_month, JSON.stringify(transactions_array));
-        // getDataExpense();
-        checkData();
     }
 
     return (

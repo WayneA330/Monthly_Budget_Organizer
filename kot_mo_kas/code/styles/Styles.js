@@ -120,13 +120,14 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'column',
         marginBottom: '100%',
-        marginTop: '10%'
+        marginTop: '10%',
     },
     income_input: {
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
-        marginBottom: 20
+        marginBottom: 20,
+        height: 50
     },
     dropdown1BtnStyle: {
         width: 250,
@@ -159,7 +160,8 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
-        marginBottom: 20
+        marginBottom: 20,
+        height: 50
     },
     add_btn_add: {
         width: 100,
@@ -175,7 +177,7 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'center',
-        marginTop: 20
+        marginTop: 10
     },
     // Analytics
     // Settings
