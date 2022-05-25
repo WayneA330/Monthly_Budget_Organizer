@@ -179,6 +179,10 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         marginTop: 10
     },
+    date_container: {
+        marginLeft: 110,
+        marginLeft: 110
+    },
     // Analytics
     // Settings
     settings_container: {

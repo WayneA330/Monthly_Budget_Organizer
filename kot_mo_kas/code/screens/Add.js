@@ -1,50 +1,77 @@
 import React, { useState } from "react";
-import { View, Text, useWindowDimensions, TextInput, TouchableOpacity, DevSettings } from 'react-native';
+import { View, Text, useWindowDimensions, TextInput, TouchableOpacity, Button } from 'react-native';
 import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
 import SelectDropdown from 'react-native-select-dropdown';
-// import DatePicker from 'react-native-datepicker';
 import * as SecureStore from 'expo-secure-store';
+import DateTimePickerModal from "react-native-modal-datetime-picker";
 import styles from '../styles/Styles';
 
-// Get current month and year
 let dateObj = new Date();
 let trans_year_month = `trans_${dateObj.getUTCFullYear()}_${dateObj.getMonth() + 1}`;
-// Generate transaction_key: trans_year_month (e.g trans_2022_05)
 
-// Check current status of trans_year_month, if not null, append to transactions_array
 let transactions_array = [];
 
+// Prevent data from overwriting each other
 const checkData = async () => {
     let result = await SecureStore.getItemAsync(trans_year_month);
     if (result !== undefined && result !== null) {
         transactions_array = JSON.parse(result);
-        console.log(transactions_array);
+        // console.log(transactions_array);
     }
 }
 checkData();
 
+// Function to clear data from storage
+const clearData = async () => {
+    await SecureStore.deleteItemAsync(trans_year_month)
+    .catch(error => console.log("Could not delete this data", error))
+}
+// Uncomment to clear date - do not forget to comment after
+// clearData();
+
 // Income Section
 const INCOME_DATA = [
     'Salary',
-    'Gift'
+    'Gift',
+    'Pension',
+    'Allowance'
 ]
 
 const income = () => {
     const [category_income, newCategoryIncome] = useState('')
     const [amount_income, setAmountIncome] = useState('');
-    // const [date, setDate] = useState(new Date());
-    // console.log(date);
+    const [dateIncome, setDateIncome] = useState('');
+
+    // Date
+    const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
+
+    const showDatePicker = () => {
+        setDatePickerVisibility(true);
+    };
+
+    const hideDatePicker = () => {
+        setDatePickerVisibility(false);
+    };
+
+    const handleConfirm = (date) => {
+        let selected_date = `${date.getDate()}/${date.getMonth() + 1}/${date.getUTCFullYear()}`;
+        // console.warn("A date has been picked: "  + selected_date);
+        setDateIncome(selected_date);
+        hideDatePicker();
+    };
     
+
     const addData = async () => {
         const transactions_income = new Object();
         transactions_income.category = category_income;
         transactions_income.amount = amount_income;
+        transactions_income.date = dateIncome;
         transactions_array.push(transactions_income);
+        console.log(transactions_array);
         
         await SecureStore.setItemAsync(trans_year_month, JSON.stringify(transactions_array));
     }
 
-    
     return (
         <View style={styles.container}>
             <View style={styles.income_container}>
@@ -76,41 +103,15 @@ const income = () => {
                 {/* Date */}
                 <View style={styles.income_input}>
                     <Text style={{marginRight: 15, fontSize: 16}}>Date</Text>
-                    {/* <DatePicker
-                        // style={styles.datePickerStyle}
-                        date={date}
-                        mode="date"
-                        placeholder="select date"
-                        format="DD/MM/YYYY"
-                        minDate="21-05-2022"
-                        maxDate="01-01-2025"
-                        confirmBtnText="Confirm"
-                        cancelBtnText="Cancel"
-                        customStyles={{
-                            dateIcon: {
-                            position: 'absolute',
-                            right: -5,
-                            top: 4,
-                            marginLeft: 0,
-                            },
-                            dateInput: {
-                            borderColor : "gray",
-                            alignItems: "flex-start",
-                            borderWidth: 0,
-                            borderBottomWidth: 1,
-                            },
-                            placeholderText: {
-                            fontSize: 17,
-                            color: "gray"
-                            },
-                            dateText: {
-                            fontSize: 17,
-                            }
-                        }}
-                        onDateChange={(date) => {
-                            setDate(date);
-                        }}
-                    /> */}
+                    <View style={styles.date_container}>
+                        <Button title="Select Date" onPress={showDatePicker}/>
+                        <DateTimePickerModal
+                            isVisible={isDatePickerVisible}
+                            mode="date"
+                            onConfirm={handleConfirm}
+                            onCancel={hideDatePicker}
+                        />
+                    </View>
                 </View>
                 {/* Add Button */}
                 <View style={styles.add_btn_container}>
@@ -144,12 +145,32 @@ const EXPENSE_DATA = [
 const expense = () => {
     const [category_expense, newCategoryExpense] = useState('')
     const [amount_expense, setAmountExpense] = useState('');
+    const [dateExpense, setDateExpense] = useState('');
+
+    const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
+
+    const showDatePicker = () => {
+        setDatePickerVisibility(true);
+    };
+
+    const hideDatePicker = () => {
+        setDatePickerVisibility(false);
+    };
+
+    const handleConfirm = (date) => {
+        let selected_date = `${date.getDate()}/${date.getMonth() + 1}/${date.getUTCFullYear()}`;
+        // console.warn("A date has been picked: "  + selected_date);
+        setDateExpense(selected_date);
+        hideDatePicker();
+    };
 
     const addData = async () => {
         const transactions_expense = new Object();
         transactions_expense.category = category_expense;
-        transactions_expense.amount = amount_expense;
+        transactions_expense.amount = `-${amount_expense}`;
+        transactions_expense.date = dateExpense;
         transactions_array.push(transactions_expense);
+        console.log(transactions_array);
 
         await SecureStore.setItemAsync(trans_year_month, JSON.stringify(transactions_array));
     }
@@ -185,6 +206,15 @@ const expense = () => {
                 {/* Date */}
                 <View style={styles.expense_input}>
                     <Text style={{marginRight: 15, fontSize: 16}}>Date</Text>
+                    <View style={styles.date_container}>
+                        <Button title="Select Date" onPress={showDatePicker}/>
+                        <DateTimePickerModal
+                            isVisible={isDatePickerVisible}
+                            mode="date"
+                            onConfirm={handleConfirm}
+                            onCancel={hideDatePicker}
+                        />
+                    </View>
                 </View>
                 {/* Add Button */}
                 <View style={styles.add_btn_container}>

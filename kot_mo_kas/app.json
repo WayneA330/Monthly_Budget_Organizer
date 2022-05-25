@@ -4,6 +4,7 @@
     "slug": "kot_mo_kas",
     "version": "1.0.0",
     "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
     "assetBundlePatterns": [
       "**/*"
     ],
