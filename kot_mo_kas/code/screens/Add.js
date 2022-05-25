@@ -104,7 +104,7 @@ const income = () => {
                 <View style={styles.income_input}>
                     <Text style={{marginRight: 15, fontSize: 16}}>Date</Text>
                     <View style={styles.date_container}>
-                        <Button title="Select Date" onPress={showDatePicker}/>
+                        <Button title="Select Date" onPress={showDatePicker} />
                         <DateTimePickerModal
                             isVisible={isDatePickerVisible}
                             mode="date"

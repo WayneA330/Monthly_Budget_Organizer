@@ -188,7 +188,7 @@ const styles = StyleSheet.create({
     settings_container: {
         backgroundColor: 'white'
     },
-    setting_category_btn: {
+    setting_delete_btn: {
         borderColor: '#00ce00',
         borderWidth: 1,
         padding: 15,
@@ -214,13 +214,28 @@ const styles = StyleSheet.create({
         alignItems: "center",
         height: 190
     },
+    setting_btn_container: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-around'
+    },
     setting_buttonClose: {
-        marginTop: 25,
+        marginTop: 20,
         backgroundColor: "#ffffff",
         borderRadius: 5,
         borderWidth: 1,
         padding: 15,
         elevation: 2
+    },
+    setting_buttonDelete: {
+        marginTop: 20,
+        backgroundColor: "#ffffff",
+        borderRadius: 5,
+        borderWidth: 1,
+        borderColor: 'red',
+        padding: 15,
+        elevation: 2,
+        marginLeft: 20
     },
 });
 
