@@ -16,10 +16,10 @@ export default function Settings({navigation}) {
     const [modalVisible1, setModalVisible1] = useState(false);
     const [modalVisible2, setModalVisible2] = useState(false);
 
-    const deleteData = () => {
-        clearData();
-        setModalVisible2(!modalVisible2);
-    } 
+    // const deleteData = () => {
+    //     clearData();
+    //     setModalVisible2(!modalVisible2);
+    // } 
     return(
         <View>
             <View style={styles.settings_container}>

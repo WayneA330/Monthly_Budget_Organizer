@@ -12,6 +12,9 @@
       "image": "./assets/logo.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
+    },
+    "android": {
+      "package": "com.waynea330.kot_mo_kas"
     }
   },
   "name": "kot_mo_kas"

@@ -115,6 +115,7 @@ const styles = StyleSheet.create({
         borderRadius: 10
     },
     // Transactions
+
     // Add
     income_container: {
         display: 'flex',
@@ -184,6 +185,15 @@ const styles = StyleSheet.create({
         marginLeft: 110
     },
     // Analytics
+    analytics_container: {
+        display: 'flex',
+        flexDirection: 'row',
+    },
+    analytics_graph: {
+        paddingVertical: 15,
+        flexDirection: 'row',
+        width: 350,
+    },
     // Settings
     settings_container: {
         backgroundColor: 'white'
