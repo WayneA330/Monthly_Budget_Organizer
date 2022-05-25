@@ -5,5 +5,4 @@
 
     <application android:usesCleartextTraffic="true" tools:targetApi="28" tools:ignore="GoogleAppIndexingWarning" />
 
-    <activity android:windowSoftInputMode="adjustPan">
 </manifest>
