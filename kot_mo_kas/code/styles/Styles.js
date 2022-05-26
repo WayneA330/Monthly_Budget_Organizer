@@ -162,7 +162,20 @@ const styles = StyleSheet.create({
         borderRadius: 10
     },
     // Transactions
-
+    expense_trans: {
+        borderWidth:1,
+        padding: 18,
+        marginBottom: 20,
+        borderRadius: 17,
+        borderColor: 'red'
+    },
+    income_trans: {
+        borderWidth:1,
+        padding: 18,
+        marginBottom: 20,
+        borderRadius: 17,
+        borderColor: 'green'
+    },
     // Add
     income_container: {
         display: 'flex',
@@ -237,9 +250,15 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
     },
     analytics_graph: {
-        paddingVertical: 15,
+        width: 200,
+        display: 'flex',
         flexDirection: 'row',
-        width: 350,
+        justifyContent: 'center'
+    },
+    general_graph: {
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center'
     },
     // Settings
     settings_container: {

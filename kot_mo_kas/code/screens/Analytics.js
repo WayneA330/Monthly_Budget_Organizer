@@ -1,65 +1,34 @@
 import React, { useEffect, useState } from "react";
-import { View, ScrollView } from 'react-native';
+import { View, ScrollView, Text } from 'react-native';
 import styles from '../styles/Styles';
 import { PieChart } from "react-native-gifted-charts";
 import * as SecureStore from 'expo-secure-store';
+import {data} from '../components/Test';
 
 // This is for the key 
-let dateObj = new Date();
-let trans_year_month = `trans_${dateObj.getUTCFullYear()}_${dateObj.getMonth() + 1}`;
+// let dateObj = new Date();
+// let trans_year_month = `trans_${dateObj.getUTCFullYear()}_${dateObj.getMonth() + 1}`;
 
 // General Graph
-let general_result;
-const get_general_data = () => {
+let income = 0;
+let expense = 0;
 
-}
+data.forEach(elem => {
+    let amount = Number(elem.amount);
+    amount < 0 ? expense += amount * -1 : income += amount;
+})
+
+let total_sum = income + expense;
+let income_percent = Math.round((income / total_sum) * 100);
+let expense_percent = Math.round((expense / total_sum) * 100);
+let balance = income - expense;
 
 const general_data = [ 
-    {value:60, color: 'green', text:'60%'},
-    {value:40, color: 'red', text:'40%'}
+    {value:income_percent, color: 'green', text:`${income_percent}%`},
+    {value:expense_percent, color: 'red', text:`${expense_percent}%`}
 ]
 
 export default function Analytics() {
-    const [result, setResult] = useState('');
-
-    async function getData () {
-        return await SecureStore.getItemAsync(trans_year_month);
-    };
-    (async () => {
-        let data = await getData();
-        setResult(data);
-    })();
-
-    // let arr = result.map(x => x);
-    // console.log(arr);
-
-    // console.log(result);
-    // General Graph
-    useEffect(() => {
-        // console.log(result);
-        // if(result != null || result != null) {
-            // console.log(JSON.parse(result)[3].amount);
-            // for(let idx in result) {
-            //     console.log(result[idx]);
-            // }
-            // console.log(JSON.parse(result));
-
-            // let data = JSON.parse(result);
-            // console.log((data));
-            // data.forEach((value, idx) => {
-            //     console.log(value);
-            // });
-
-            // for (let i = 0; i < result.length; i++){
-            //     console.log(result[i]);
-            // }
-
-            // result.forEach(function (arrayItem) {
-            //     // var x = arrayItem.prop1 + 2;
-            //     console.log(arrayItem);
-            // });
-        // }
-    });
 
     return(
         <ScrollView style={styles.container}>
@@ -67,7 +36,9 @@ export default function Analytics() {
                 {/* General Graph */}
                 <View style={styles.general_graph}>
                     <View style={styles.analytics_details}>
-                        
+                        <Text style={{color: 'green', fontSize: 18, marginBottom: 15}}>Income: Rs {income}</Text>
+                        <Text style={{color: 'red', fontSize: 18, marginBottom: 15}}>Expense: Rs {expense}</Text>
+                        <Text style={{fontSize: 18}}>Balance: Rs {balance}</Text>
                     </View>
                     <View style={styles.analytics_graph}>
                         <PieChart 
@@ -75,8 +46,7 @@ export default function Analytics() {
                             radius={85}
                             showText
                             textColor="white"
-                            donut
-                            labelsPosition='outward'
+                            labelsPosition='mid'
                         />
                     </View>
                 </View>

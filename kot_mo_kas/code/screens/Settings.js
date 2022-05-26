@@ -89,11 +89,11 @@ export default function Settings({navigation}) {
 
                 <Text style={{fontWeight: 'bold', fontSize: 19, marginBottom: 25, marginTop: 40, textAlign: 'center'}}>General</Text>
                 {/* Delete Button */}
-                <TouchableOpacity
+                {/* <TouchableOpacity
                         style={styles.setting_delete_btn}
                         onPress={() => setModalVisible2(true)}>
                             <Text style={{color: 'red', fontSize: 16, fontWeight: 'bold', textAlign: 'center'}}>Delete All Transactions</Text>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
                 {/* About Button */}
                 <TouchableOpacity
                         style={styles.setting_about_btn}
