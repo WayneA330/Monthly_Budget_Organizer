@@ -55,8 +55,11 @@ const income = () => {
 
     const handleConfirm = (date) => {
         let selected_date = `${date.getDate()}/${date.getMonth() + 1}/${date.getUTCFullYear()}`;
-        // console.warn("A date has been picked: "  + selected_date);
         setDateIncome(selected_date);
+        // console.log(selected_date);
+        let arr = selected_date.split('/');
+        trans_year_month = `trans_${arr[2]}_${arr[1]}`
+        // console.log(trans_year_month);
         hideDatePicker();
     };
     
@@ -159,8 +162,11 @@ const expense = () => {
 
     const handleConfirm = (date) => {
         let selected_date = `${date.getDate()}/${date.getMonth() + 1}/${date.getUTCFullYear()}`;
-        // console.warn("A date has been picked: "  + selected_date);
         setDateExpense(selected_date);
+        // console.log(selected_date);
+        let arr = selected_date.split('/');
+        trans_year_month = `trans_${arr[2]}_${arr[1]}`
+        // console.log(trans_year_month);
         hideDatePicker();
     };
 

@@ -42,7 +42,8 @@ export default function Settings({navigation}) {
                                 onPress={()=> Linking.openURL('mailto:waynecelestin.a3@gmail.com')}>
                                 waynecelestin.a3@gmail.com
                             </Text>
-                            <Text style={{fontSize: 16, marginTop: 10}}>Developed By: Wayne Célestin</Text>
+                            <Text style={{fontSize: 16, marginTop: 10, textAlign: 'center'}}>Developed By:</Text>
+                            <Text style={{fontSize: 16, marginTop: 10, textAlign: 'center'}}>Wayne Célestin with the help of Damien Mallet</Text>
                             <Text style={{fontSize: 16, marginTop: 10}}>Published: 26/05/2022</Text>
                         </View>
                         <Pressable

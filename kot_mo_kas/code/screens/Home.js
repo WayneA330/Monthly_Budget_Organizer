@@ -15,7 +15,9 @@ export default function HomeScreen({navigation}) {
                 {/* Top */}
                 <View style={styles.top_home}>
                     <Text style={styles.home_title}>
-                        Welcome to{"\n"}
+                        Welcome to
+                    </Text>
+                    <Text style={styles.home_title2}>
                         Kot mo kas
                     </Text>
                     <View style={styles.hr_home}></View>
@@ -24,7 +26,7 @@ export default function HomeScreen({navigation}) {
                 <View style={[styles.home_display_sections] }>
                     {/* Button for Transactions */}
                     <TouchableOpacity
-                        style={[styles.home_transactions, styles.shadow]}
+                        style={[styles.home_transactions, styles.shadow_transactions]}
                         onPress={go_transactions}
                     >
                         <Image 
@@ -39,7 +41,7 @@ export default function HomeScreen({navigation}) {
                     </TouchableOpacity>
                     {/* Button for Add */}
                     <TouchableOpacity
-                        style={[styles.home_add, styles.shadow]}
+                        style={[styles.home_add, styles.shadow_add]}
                         onPress={go_add}
                     >
                         <Image 
@@ -54,7 +56,7 @@ export default function HomeScreen({navigation}) {
                     </TouchableOpacity>
                     {/* Button for Analytics */}
                     <TouchableOpacity
-                        style={[styles.home_analytics, styles.shadow]}
+                        style={[styles.home_analytics, styles.shadow_analytics]}
                         onPress={go_analytics}
                     >
                         <Image 
@@ -69,7 +71,7 @@ export default function HomeScreen({navigation}) {
                     </TouchableOpacity>
                     {/* Button for Settings */}
                     <TouchableOpacity
-                        style={[styles.home_settings, styles.shadow]}
+                        style={[styles.home_settings, styles.shadow_setting]}
                         onPress={go_settings}
                     >
                         <Image 
@@ -84,7 +86,8 @@ export default function HomeScreen({navigation}) {
                     </TouchableOpacity>
                 </View>
                 <View style={styles.home_bottom}>
-                    <Text style={{fontSize: 19, textAlign: 'center', fontStyle: 'italic', marginBottom: '100%'}}>"A budget is telling your money where to go instead of wondering where it went."{"\n"} - Dave Ramsey</Text>
+                    <Text style={{fontSize: 19, textAlign: 'center',  color: '#575757', textAlign: 'left'}}>"A budget is telling your money where to go instead of wondering where it went."</Text>
+                    <Text style={{fontSize: 19, textAlign: 'center',  color: '#575757', textAlign: 'right', marginTop: 30}}>- Dave Ramsey</Text>
                 </View>
 
         </View>

@@ -16,6 +16,42 @@ const styles = StyleSheet.create({
         shadowRadius: 3.5,
         elevation: 5
     },
+    shadow_transactions: {
+        shadowColor: '#ff8000',
+        shadowOffset: {
+            width: 7,
+            height: 7
+        },
+        shadowOpacity: 0.30,
+        elevation: 5
+    },
+    shadow_add: {
+        shadowColor: '#00ff0e',
+        shadowOffset: {
+            width: 7,
+            height: 7
+        },
+        shadowOpacity: 0.30,
+        elevation: 5
+    },
+    shadow_analytics: {
+        shadowColor: '#00c0ff',
+        shadowOffset: {
+            width: 7,
+            height: 7
+        },
+        shadowOpacity: 0.30,
+        elevation: 5
+    },
+    shadow_setting: {
+        shadowColor: '#ff4a5a',
+        shadowOffset: {
+            width: 7,
+            height: 7
+        },
+        shadowOpacity: 0.30,
+        elevation: 5
+    },
     // Home
     top_home: {
         display: 'flex',
@@ -23,12 +59,17 @@ const styles = StyleSheet.create({
     },
     home_title: {
         textAlign: 'center',
-        fontSize: 28
+        fontSize: 26
+    },
+    home_title2: {
+        textAlign: 'center',
+        fontSize: 32,
+        fontWeight: 'bold'
     },
     hr_home: {
         borderBottomColor: '#35B736',
         borderBottomWidth: 1,
-        width: 150,
+        width: 170,
         marginLeft:'auto',
         marginRight: 'auto',
         marginBottom: 25
@@ -48,18 +89,19 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
     },
     home_display_sections: {
-        height: 284,
+        height: 280,
         display: "flex",
         flexDirection: 'row',
         justifyContent: 'space-around',
         flexWrap: 'wrap'
     },
     home_transactions: {
-        borderWidth: 1,
+        borderWidth: 2,
+        borderColor: '#ff8000',
         height: 130,
         width: 130,
         borderRadius: 10,
-        backgroundColor: '#ffa232',
+        backgroundColor: 'white',
         display: 'flex',
         justifyContent:'center',
         alignItems: 'center',
@@ -67,11 +109,12 @@ const styles = StyleSheet.create({
         padding: 4
     },
     home_add: {
-        borderWidth: 1,
+        borderWidth: 2,
+        borderColor: '#85bf4b',
         height: 130,
         width: 130,
         borderRadius: 10,
-        backgroundColor: '#85bf4b',
+        backgroundColor: 'white',
         display: 'flex',
         justifyContent:'center',
         alignItems: 'center',
@@ -79,11 +122,12 @@ const styles = StyleSheet.create({
         padding: 4
     },
     home_analytics: {
-        borderWidth: 1,
+        borderWidth: 2,
+        borderColor: '#00c0ff',
         height: 130,
         width: 130,
         borderRadius: 10,
-        backgroundColor: '#50bfbf',
+        backgroundColor: 'white',
         display: 'flex',
         justifyContent:'center',
         alignItems: 'center',
@@ -91,11 +135,12 @@ const styles = StyleSheet.create({
         padding: 4
     },
     home_settings: {
-        borderWidth: 1,
+        borderWidth: 2,
+        borderColor: '#ff4a5a',
         height: 130,
         width: 130,
         borderRadius: 10,
-        backgroundColor: '#ff4a5a',
+        backgroundColor: 'white',
         display: 'flex',
         justifyContent:'center',
         alignItems: 'center',
@@ -104,7 +149,9 @@ const styles = StyleSheet.create({
     },
     home_bottom: {
         marginTop: 60,
-        marginBottom: 30
+        marginBottom: '100%',
+        position: 'relative',
+        bottom: 0
     },
     home_btn: {
         alignItems: 'center',
@@ -222,7 +269,7 @@ const styles = StyleSheet.create({
         justifyContent: "space-around",
         backgroundColor: "white",
         alignItems: "center",
-        height: 190
+        height: 220
     },
     setting_btn_container: {
         display: 'flex',
