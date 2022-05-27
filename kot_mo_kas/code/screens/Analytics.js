@@ -36,9 +36,9 @@ export default function Analytics() {
                 {/* General Graph */}
                 <View style={styles.general_graph}>
                     <View style={styles.analytics_details}>
-                        <Text style={{color: 'green', fontSize: 18, marginBottom: 15}}>Income: Rs {income}</Text>
-                        <Text style={{color: 'red', fontSize: 18, marginBottom: 15}}>Expense: Rs {expense}</Text>
-                        <Text style={{fontSize: 18}}>Balance: Rs {balance}</Text>
+                        <Text style={{color: 'green', fontSize: 18, marginBottom: 15}}>Income: Rs {income.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</Text>
+                        <Text style={{color: 'red', fontSize: 18, marginBottom: 15}}>Expense: Rs {expense.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</Text>
+                        <Text style={{fontSize: 18}}>Balance: Rs {balance.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</Text>
                     </View>
                     <View style={styles.analytics_graph}>
                         <PieChart 

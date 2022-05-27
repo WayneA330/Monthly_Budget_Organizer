@@ -13,7 +13,7 @@ export default function Transactions({navigation}) {
                     <View style={styles.expense_trans}>
                         <Text style={{fontSize: 16}}><Text style={{fontWeight: 'bold'}}>{a.category}</Text>{'\n'}{'\n'}{a.date}</Text>
                         <View style={{position: 'absolute', right: 15, bottom: 37}}>
-                            <Text style={{fontSize: 16, color: 'red'}}>- Rs {a.amount * -1}</Text>
+                            <Text style={{fontSize: 16, color: 'red'}}>- Rs {((a.amount * -1).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","))}</Text>
                         </View>
                     </View>
                     )
@@ -22,7 +22,7 @@ export default function Transactions({navigation}) {
                         <View style={styles.income_trans}>
                         <Text style={{fontSize: 16}}><Text style={{fontWeight: 'bold'}}>{a.category}</Text>{'\n'}{'\n'}{a.date}</Text>
                         <View style={{position: 'absolute', right: 15, bottom: 37}}>
-                            <Text style={{fontSize: 16, color: 'green'}}>+ Rs {a.amount}</Text>
+                            <Text style={{fontSize: 16, color: 'green'}}>+ Rs {(a.amount).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</Text>
                         </View>
                     </View>
                     )
